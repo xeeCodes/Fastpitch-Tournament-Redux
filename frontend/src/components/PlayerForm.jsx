@@ -96,8 +96,8 @@ const {status,error,playerDetails} = useSelector((state) => state.registrationSl
     <>
 
 <dialog id="player-form" className="modal">
-  <div className="modal-box">
-    <form method="dialog">
+  <div className="modal-box w-64 sm:w-80 md:w-96 max-w-lg p-6 sm:p-8">
+    <form method="dialog flex flex-col gap-4">
       <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
     </form>
 
@@ -124,7 +124,7 @@ const {status,error,playerDetails} = useSelector((state) => state.registrationSl
  {showToast && (
   <div id="toast-success"
        className="flex items-center w-full max-w-sm p-4 text-body bg-neutral-primary-soft 
-                  rounded-base shadow-xs bg-green-500 border border-green bg-green-500"
+                  rounded-base shadow-xs  border border-green bg-green-500"
        role="alert">
 
     <div className="inline-flex items-center justify-center shrink-0 w-7 h-7 text-fg-success bg-success-soft rounded">
@@ -161,21 +161,21 @@ const {status,error,playerDetails} = useSelector((state) => state.registrationSl
   </div>
 }
 
-    <h3 className="font-bold text-lg my-3 ">Registertion Form</h3>
+    <h3 className="font-bold text-lg sm:text-xl mb-2 ">Registertion Form</h3>
 
     <hr />
    <div className='my-4'>
 
     <form>
 
-
+<div className='flex flex-col'>
 <label className="label">Player Name</label>
-  <input type="text"  onChange={handleChange} name='firstName' value={formState.firstName} className="input" placeholder="Player Name" />
-        {errors.firstName && <p style={{ color: 'red' }}>{errors.firstName}</p>}
+  <input type="text"  onChange={handleChange} name='firstName' value={formState.firstName} className="input w-full" placeholder="Player Name" />
+        {errors.firstName && <p style={{ color: 'red' }}>{errors.firstName}</p>}</div>
+<div className='flex flex-col'>
+  <label className="label">Graduation Year</label>
 
-<label className="label">Graduation Year</label>
-
- <select value={formState.graduationYear}className="select" name='graduationYear' onChange={handleChange}>
+ <select value={formState.graduationYear}className="select w-full" name='graduationYear' onChange={handleChange}>
   <option value='' disabled={true}>Select a Year</option>
 
   {Years.map((y) => (
@@ -185,11 +185,13 @@ const {status,error,playerDetails} = useSelector((state) => state.registrationSl
         {errors.graduationYear && <p style={{ color: 'red' }}>{errors.graduationYear}</p>}
 
 
+</div>
 
+<div className='flex flex-col '>
 
-<label className="label">Primary Position</label>
+  <label className="label">Primary Position</label>
 
-  <select value={formState.primaryPosition} className="select" name='primaryPosition'  onChange={handleChange}>
+  <select value={formState.primaryPosition} className="select w-full" name='primaryPosition'  onChange={handleChange}>
   <option value='' disabled={true}>Select a Position</option>
  {Positions.map((pos,key) => {
 
@@ -200,16 +202,27 @@ const {status,error,playerDetails} = useSelector((state) => state.registrationSl
 </select>
         {errors.primaryPosition && <p style={{ color: 'red' }}>{errors.primaryPosition}</p>}
 
+</div>
 
-  <label className="label">Guardian Email</label>
-  <input type="email" onChange={handleChange}  name='guardianEmail' value={formState.guardianEmail} className="input" placeholder="Email" />
+<div className='flex flex-col'>
+
+    <label className="label">Guardian Email</label>
+  <input type="email" onChange={handleChange}  name='guardianEmail' value={formState.guardianEmail} className="input w-full" placeholder="Email" />
         {errors.guardianEmail && <p style={{ color: 'red' }}>{errors.guardianEmail}</p>}
 
-  <label className="label">Password</label>
-  <input type="password" onChange={handleChange}  name='password' value={formState.password} className="input" placeholder="Password" />
-        {errors.password && <p style={{ color: 'red' }}>{errors.password}</p>}
+</div>
 
-  <button className="btn btn-neutral mt-4" onClick={handleSubmit}>Register</button>
+<div className='flex flex-col'> <label className="label">Guardian Email</label>
+  <input type="email" onChange={handleChange}  name='guardianEmail' value={formState.guardianEmail} className="input w-full" placeholder="Email" />
+        {errors.guardianEmail && <p style={{ color: 'red' }}>{errors.guardianEmail}</p>}
+</div>
+
+<div className='flex flex-col'>  <label className="label">Password</label>
+  <input type="password" onChange={handleChange}  name='password' value={formState.password} className="input w-full" placeholder="Password" />
+        {errors.password && <p style={{ color: 'red' }}>{errors.password}</p>}
+</div>
+  
+  <button className="btn btn-neutral w-full mt-4" onClick={handleSubmit}>Register</button>
     </form>
 
 

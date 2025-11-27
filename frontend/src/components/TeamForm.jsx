@@ -122,147 +122,110 @@ password: ""});
     
   return (
    <dialog id="team-form" className="modal">
-  <div className="modal-box">
-    <form method="dialog">
-      <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-    </form>
+            <div className="modal-box w-64 sm:w-80 md:w-96 max-w-lg p-6 sm:p-8">
+                <form method="dialog">
+                    <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                </form>
 
-    {status === 'isSubmitting' &&<div id="toast-success"
-       className="flex items-center w-full max-w-sm p-4 text-body bg-neutral-primary-soft 
-                  rounded-base shadow-xs border border-green bg-green-300"
-       role="alert">
+                {status === 'isSubmitting' && <div id="toast-success"
+                    className="flex items-center w-full max-w-sm p-4 text-body bg-neutral-primary-soft 
+                    rounded-base shadow-xs border border-green bg-green-300"
+                    role="alert">
+                    <div className="inline-flex items-center justify-center shrink-0 w-7 h-7 text-fg-success bg-success-soft rounded">
+                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+                            d="M5 11.917 9.724 16.5 19 7.5" />
+                        </svg>
+                    </div>
+                    <div className="flex flex-row">
+                        <span>Submitting</span><Loading/>
+                    </div>
+                </div>}
 
-    <div className="inline-flex items-center justify-center shrink-0 w-7 h-7 text-fg-success bg-success-soft rounded">
-      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24">
-        <path stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-              d="M5 11.917 9.724 16.5 19 7.5" />
-      </svg>
-    </div>
+                {showToast && (
+                    <div id="toast-success"
+                        className="flex items-center w-full max-w-sm p-4 text-body bg-neutral-primary-soft 
+                        rounded-base shadow-xs border border-green bg-green-500"
+                        role="alert">
+                        <div className="inline-flex items-center justify-center shrink-0 w-7 h-7 text-fg-success bg-success-soft rounded">
+                            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+                                d="M5 11.917 9.724 16.5 19 7.5" />
+                            </svg>
+                        </div>
+                        <div className="ms-3 text-sm font-normal">
+                            Registration successful!
+                        </div>
+                    </div>
+                )}
 
-    <div className="flex flex-row">
-<span>Submitting</span><Loading/>    </div>
+                {showErro  &&  <div id="toast-success"
+                    className="flex items-center w-full max-w-sm p-4 text-body bg-neutral-primary-soft 
+                    rounded-base shadow-xs border border-default bg-red-300"
+                    role="alert">
+                    <div className="inline-flex items-center justify-center shrink-0 w-7 h-7 text-fg-success bg-success-soft rounded">
+                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+                            d="M5 11.917 9.724 16.5 19 7.5" />
+                        </svg>
+                    </div>
+                    <div className="ms-3 text-sm font-normal">
+                        Registration failed!
+                    </div>
+                </div>}
 
-   
-  </div>}
+                <h3 className="font-bold text-lg my-3 ">Registertion Form</h3>
+                <hr />
+                <div className='my-4'>
+                    <form>
+                        <div className="form-control">
+                            <label className="label">Team Name</label>
+                            <input type="text"  onChange={handleChange} name='name' value={formState.name} className="input input-bordered" placeholder="Team Name" />
+                            {errors.name && <p style={{ color: 'red' }}>{errors.name}</p>}
+                        </div>
 
+                        <div className="form-control">
+                            <label className="label">Coach Name</label>
+                            <input type="text"  onChange={handleChange} name='coachName' value={formState.coachName} className="input input-bordered" placeholder="Coach Name" />
+                            {errors.coachName && <p style={{ color: 'red' }}>{errors.coachName}</p>}
+                        </div>
 
- {showToast && (
-  <div id="toast-success"
-       className="flex items-center w-full max-w-sm p-4 text-body bg-neutral-primary-soft 
-                  rounded-base shadow-xs border border-default  bg-green-500"
-       role="alert">
+                        <div className="form-control">
+                            <label className="label">Age Group</label>
+                            <select name="ageGroup" value={formState.ageGroup} className="select select-bordered" onChange={handleChange}>
+                                <option value="" disabled>Select an Age Group</option>
+                                {ageGroups.map(group => (
+                                    <option key={group} value={group}>{group}</option>
+                                ))}
+                            </select>
+                            {errors.ageGroup && <p style={{ color: 'red' }}>{errors.ageGroup}</p>}
+                        </div>
 
-    <div className="inline-flex items-center justify-center shrink-0 w-7 h-7 text-fg-success bg-success-soft rounded">
-      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24">
-        <path stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-              d="M5 11.917 9.724 16.5 19 7.5" />
-      </svg>
-    </div>
+                        <div className="form-control">
+                            <label className="label">State</label>
+                            <select name="state" value={formState.state} className="select select-bordered" onChange={handleChange}>
+                                <option value="" disabled>Select a State</option>
+                                {States.map(g => <option key={g} value={g}>{g}</option>)}
+                            </select>
+                            {errors.state && <p style={{ color: 'red' }}>{errors.state}</p>}
+                        </div>
 
-    <div className="ms-3 text-sm font-normal">
-      Registration successful!
-    </div>
+                        <div className="form-control">
+                            <label className="label">Coach Email</label>
+                            <input type="email" onChange={handleChange}  name='coachEmail' value={formState.coachEmail} className="input input-bordered" placeholder="Email" />
+                            {errors.coachEmail && <p style={{ color: 'red' }}>{errors.coachEmail}</p>}
+                        </div>
 
-   
-  </div>
-)}
+                        <div className="form-control">
+                            <label className="label">Password</label>
+                            <input type="password" onChange={handleChange}  name='password' value={formState.password} className="input input-bordered" placeholder="Password" />
+                            {errors.password && <p style={{ color: 'red' }}>{errors.password}</p>}
+                        </div>
 
-
- {showErro  &&  <div id="toast-success"
-       className="flex items-center w-full max-w-sm p-4 text-body bg-neutral-primary-soft 
-                  rounded-base shadow-xs border border-default bg-red-300"
-       role="alert">
-
-    <div className="inline-flex items-center justify-center shrink-0 w-7 h-7 text-fg-success bg-success-soft rounded">
-      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24">
-        <path stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-              d="M5 11.917 9.724 16.5 19 7.5" />
-      </svg>
-    </div>
-
-    <div className="ms-3 text-sm font-normal">
-      Registration failed!
-    </div>
-
-   
-  </div>
-}
-    <h3 className="font-bold text-lg my-3 ">Registertion Form</h3>
-
-    <hr />
-   <div className='my-4'>
-
-    <form>
-
-
-<label className="label">Team Name</label>
-  <input type="text"  onChange={handleChange} name='name' value={formState.name} className="input" placeholder="Team Name" />
-  {errors.name && <p style={{ color: 'red' }}>{errors.name}</p>}
-
-<label className="label">Coach Name</label>
-  <input type="text"  onChange={handleChange} name='coachName' value={formState.coachName} className="input" placeholder="Coach Name" />
-  {errors.coachName && <p style={{ color: 'red' }}>{errors.coachName}</p>}
-
-<label className="label">Age Group</label>
-
- <div className="form-control">
-  <select
-    name="ageGroup"
-    value={formState.ageGroup}
-    className="select select-bordered "
-    onChange={handleChange}
-  >
-    <option value="" disabled>Select an Age Group</option>
-    {ageGroups.map(group => (
-      <option key={group} value={group}>{group}</option>
-    ))}
-  </select>
-
-    {errors.ageGroup && <p style={{ color: 'red' }}>{errors.ageGroup}</p>}
-
-</div>
-
-
-
-  <label className="label">State</label>
-
-<div className="form-control">
-  <select
-    name="state"
-    value={formState.state}
-    className="select select-bordered "
-    onChange={handleChange}
-  >
-    <option value="" disabled>Select a State</option>
-    {States.map(g => <option key={g} value={g}>{g}</option>)}
-  </select>
-
-    {errors.state && <p style={{ color: 'red' }}>{errors.state}</p>}
-
-</div>
-
-
-
-
-  <label className="label">Coach Email</label>
-  <input type="email" onChange={handleChange}  name='coachEmail' value={formState.coachEmail} className="input" placeholder="Email" />
-  {errors.coachEmail && <p style={{ color: 'red' }}>{errors.coachEmail}</p>}
-
-  <label className="label">Password</label>
-  <input type="password" onChange={handleChange}  name='password' value={formState.password} className="input" placeholder="Password" />
-  {errors.password && <p style={{ color: 'red' }}>{errors.password}</p>}
-
-  <button className="btn btn-neutral mt-4" onClick={handleSubmit}>Register</button>
-    </form>
-
-
-
-   </div>
-  </div>
-
-
-
-
-</dialog>
+                        <button className="btn btn-neutral mt-4 w-full" onClick={handleSubmit}>Register</button>
+                    </form>
+                </div>
+            </div>
+        </dialog>
   )
 }

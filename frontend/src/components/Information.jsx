@@ -60,7 +60,7 @@ function Information() {
 <div className='flex flex-col sm:flex-row  md:flex-row lg-flex-row  gap-2 m-2 '>
 
 
-    <div className="card  bg-base-100 w-xsm shadow-lg  ">
+    <div className="card  bg-base-100 lg:w-2xl shadow-lg  ">
   <div className="card-body ">
     <h2 className="card-title text-xs sm:text-sm md:text-base "><i className="fas fa-dollar-sign text-green-700 text-2xl"></i>Entry Fees</h2>
    
@@ -90,7 +90,7 @@ function Information() {
    </div>
   </div>
 </div>
-<div className="card  bg-base-100  shadow-lg  w-xsm">
+<div className="card  bg-base-100 lg:w-2xl shadow-lg  w-xsm">
   <div className="card-body">
     <h2 className="card-title text-xs sm:text-sm md:text-base "><i className="fa fa-clock  text-2xl text-red-600"></i>
 Registration Deadlines</h2>

@@ -11,7 +11,7 @@ const {status,error,eventDetails} = useSelector((state)=>state.eventSlice);
 
 
   return (
-<div className="navbar bg-base-100 z-10 sticky top-0 shadow-sm">
+<div className="navbar bg-gray-700 z-10 sticky top-0 shadow-sm">
     <div >
         <img className='w-10 sm:w-15' src={logo}/>
     </div>
