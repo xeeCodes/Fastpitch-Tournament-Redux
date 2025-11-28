@@ -65,24 +65,24 @@ function Information() {
     <h2 className="card-title text-xs sm:text-sm md:text-base "><i className="fas fa-dollar-sign text-green-700 text-2xl"></i>Entry Fees</h2>
    
    <div className='flex flex-row text-xs sm:text-sm md:text-base  justify-between'>
-    <p>
+    <span>
 18U Division
-    </p>
-    <p>$50 per team</p>
+    </span>
+    <span>$50 per team</span>
    </div>
    <hr/>
      <div className='flex flex-row text-xs sm:text-sm md:text-base  justify-between'>
-    <p>
+    <span>
 16U Division
-    </p>
-    <p>$40 per team</p>
+    </span>
+    <span>$40 per team</span>
    </div>
    <hr/>
      <div className='flex flex-row text-xs sm:text-sm md:text-base  justify-between'>
-    <p>
+    <span>
 14U Division
-    </p>
-    <p>3$0 per team</p>
+    </span>
+    <span>3$0 per team</span>
    </div>
    <hr/>
    <div className='bg-opacity-50  text-xs sm:text-sm md:text-base bg-blue-400 rounded-sm p-2'>
@@ -95,24 +95,24 @@ function Information() {
     <h2 className="card-title text-xs sm:text-sm md:text-base "><i className="fa fa-clock  text-2xl text-red-600"></i>
 Registration Deadlines</h2>
    
-   <div className='flex flex-row text-xs sm:text-sm md:text-base justify-between md'>
-    <p>
-Early Bird Deadline    </p>
-    <p>April 15, 2025</p>
+   <div className='flex flex-row text-xs sm:text-sm md:text-base justify-between '>
+    <span>
+Early Bird Deadline    </span>
+    <span>April 15, 2025</span>
+   </div>
+   <hr/>
+     <div className='flex flex-row text-xs sm:text-sm md:text-base justify-between  '>
+    <span>Standard Registration</span>
+
+    <span>May 30, 2025</span>
    </div>
    <hr/>
      <div className='flex flex-row text-xs sm:text-sm md:text-base  justify-between'>
-    <p>
-Standard Registration</p>
-    <p>May 30, 2025</p>
-   </div>
-   <hr/>
-     <div className='flex flex-row text-xs sm:text-sm md:text-base  justify-between'>
-    <p>
+    <span>
 Late Registration
 
-    </p>
-    <p>June 10, 2025</p>
+    </span>
+    <span>June 10, 2025</span>
    </div>
    <hr/>
    <div className='bg-opacity-50 bg-orange-100 text-xs sm:text-sm md:text-base  rounded-sm p-2'>

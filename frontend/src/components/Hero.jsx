@@ -33,7 +33,7 @@ const {status,error,eventDetails} = useSelector((state)=>state.eventSlice);
             <>
             {eventDetails && 
             <>
-            <h1 className="mb-5 text-3xl font-bold sm:text-5xl">{eventDetails.name}</h1>
+            <h1 className="mb-5 text-4xl font-bold sm:text-5xl">{eventDetails.name}</h1>
               <p className="mb-5 sm:text-lg">
                 <i className="fas fa-calendar-alt"></i> {eventDetails.date} |
                 <i className="fas fa-map-marker-alt"></i> {eventDetails.location}
@@ -44,9 +44,9 @@ const {status,error,eventDetails} = useSelector((state)=>state.eventSlice);
             </>
           )}
 
-          <div className='flex flex-row gap-2 sm:justify-between text-center justify-center'>
-            <button className="btn btn-primary p-1 text-xs btn-sm sm:btn-md sm:rounded-lg md:text-base" onClick={()=>document.getElementById("player-form").showModal()}>Player Camp Sign-Up!</button>
-            <button className="btn btn-secondary btn-sm p-1 text-xs sm:btn-md sm:rounded-lg md:text-base"  onClick={()=>document.getElementById("team-form").showModal()}>Register Your Team</button>
+          <div className='flex flex-row gap-2 sm:justify-between md:justify-between text-center justify-center'>
+            <button className="btn btn-primary p-1  text-xs btn-sm sm:btn-md sm:rounded-lg md:p-3  md:text-base" onClick={()=>document.getElementById("player-form").showModal()}>Player Camp Sign-Up!</button>
+            <button className="btn btn-secondary btn-sm p-1 text-xs sm:btn-md sm:rounded-lg md:p-3 md:text-base"  onClick={()=>document.getElementById("team-form").showModal()}>Register Your Team</button>
           </div>
         </div>
       </div>

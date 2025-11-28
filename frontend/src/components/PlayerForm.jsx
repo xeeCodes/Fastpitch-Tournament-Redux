@@ -96,7 +96,7 @@ const {playerStatus,playerErrors  ,playerDetails} = useSelector((state) => state
     <>
 
 <dialog id="player-form" className="modal">
-  <div className="modal-box w-64 sm:w-80 md:w-96 max-w-lg p-6 sm:p-8">
+<div className="modal-box w-full-[10px] max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl p-6  sm:p-8">
     <form method="dialog flex flex-col gap-4">
       <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
     </form>
