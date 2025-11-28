@@ -3,7 +3,7 @@ import createSagaMiddleware from "redux-saga";
 import rootSaga from "./sagas/rootSaga";
 
 import { eventInfoReducer } from './reducers/eventReducer';
-import { playerInfoReducer } from './reducers/registerationReducer';
+import { registrationReducer } from './reducers/registerationReducer';
 //initial states
 
 
@@ -15,7 +15,7 @@ const initialStates = {};
 const reducer = combineReducers({
 
     eventSlice: eventInfoReducer,
-    registrationSlice:playerInfoReducer
+    registrationSlice:registrationReducer
 
 
 }); 

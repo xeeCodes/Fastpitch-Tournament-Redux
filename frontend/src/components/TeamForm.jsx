@@ -74,7 +74,7 @@ const [showErro,setShowError] = useState(false)
     }
     
     
-    const {status,error,details} = useSelector((state) => state.registrationSlice); 
+    const {teamStatus,teamError,teamDetails} = useSelector((state) => state.registrationSlice); 
     
         // submit handler
     
@@ -96,7 +96,7 @@ const [showErro,setShowError] = useState(false)
         // useeffect
 
          useEffect(() => {
-          if (status === 'success' ) {
+          if (teamStatus === 'success' ) {
     setShowToast(true);
 
 setFormState({ name: "",
@@ -112,13 +112,13 @@ password: ""});
 
             
           }
-          else if(error){
+          else if(teamError){
 
             setShowError(true);
     setTimeout(() => setShowError(false), 3000);
 
           }
-        }, [status, error]);
+        }, [teamStatus, teamError]);
     
   return (
    <dialog id="team-form" className="modal">
@@ -127,7 +127,7 @@ password: ""});
                     <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                 </form>
 
-                {status === 'isSubmitting' && <div id="toast-success"
+                {teamStatus === 'loading' && <div id="toast-success"
                     className="flex items-center w-full max-w-sm p-4 text-body bg-neutral-primary-soft 
                     rounded-base shadow-xs border border-green bg-green-300"
                     role="alert">

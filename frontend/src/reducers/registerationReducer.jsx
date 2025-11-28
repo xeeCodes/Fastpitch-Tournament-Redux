@@ -1,37 +1,43 @@
 import {
-    REGISTERATION_REQUEST,
-    REGISTERATION_SUBMITTING,
-    REGISTERATION_SUCCESS,
-    REGISTERATION_FAIL,
-    TEAM_REGISTER_REQUEST
-} from '../constants/registerationConstants'
+  PLAYER_REGISTER_SUBMITTING,
+  PLAYER_REGISTER_SUCCESS,
+  PLAYER_REGISTER_FAIL,
+  TEAM_REGISTER_SUBMITTING,
+  TEAM_REGISTER_SUCCESS,
+  TEAM_REGISTER_FAIL,
+} from '../constants/registerationConstants';
 
-const playerInitialState = {
-  status: 'idle',
+const initialState = {
+  playerStatus: 'idle',
+  playerError: null,
   playerDetails: [],
-  error: null
+  teamStatus: 'idle',
+  teamError: null,
+  teamDetails: [],
 };
 
-export const playerInfoReducer = (state = playerInitialState, action) => {
-  switch(action.type){
-    case REGISTERATION_REQUEST:
-      return {  status: "loading" };
-      case TEAM_REGISTER_REQUEST:
-      return {  status: "loading" };
+export const registrationReducer = (state = initialState, action) => {
 
 
-      case REGISTERATION_SUBMITTING:
-      return {  status: "isSubmitting" };
-    
-    case REGISTERATION_SUCCESS:
-      return {  status: "success", details: action.payload };
-    
-    case REGISTERATION_FAIL:
-      return {  status: "failure", error: action.payload };
 
-      // case POST_REGISTERATION:
-      //   return {status:"idle"}
-    
+  switch (action.type) {
+      
+
+    //player status
+    case PLAYER_REGISTER_SUBMITTING:
+      return {...state, playerStatus: 'loading' };
+       case PLAYER_REGISTER_SUCCESS:
+      return {...state,playerStatus: 'success', playerDetails: action.payload };
+        case PLAYER_REGISTER_FAIL:
+      return {...state, playerStatus: 'failure', playerError: action.payload };
+
+      //team status
+    case TEAM_REGISTER_SUBMITTING:
+         return { teamStatus: 'loading' };
+    case TEAM_REGISTER_SUCCESS:
+      return { teamStatus: 'success', teamDetails: action.payload };
+    case TEAM_REGISTER_FAIL:
+      return {teamStatus: 'failure', teamError: action.payload };
     default:
       return state;
   }

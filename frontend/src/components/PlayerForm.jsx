@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from 'react'
 import { useDispatch,useSelector } from 'react-redux';
-import {  registerationAction } from '../actions/registerationAction';
+import {  playerRegisterationAction } from '../actions/registerationAction';
 import Loading from './Loading';
 
 function PlayerForm() {
@@ -55,7 +55,7 @@ const handleChange = (e) => {
 }
 
 
-const {status,error,playerDetails} = useSelector((state) => state.registrationSlice); 
+const {playerStatus,playerErrors  ,playerDetails} = useSelector((state) => state.registrationSlice); 
 
     // submit handler
 
@@ -66,14 +66,14 @@ const {status,error,playerDetails} = useSelector((state) => state.registrationSl
     setErrors(validationErrors);
 
     if (Object.keys(validationErrors).length === 0) {
-      dispatch(registerationAction(formState));
+      dispatch(playerRegisterationAction(formState));
     }
   }
 
     // useEffect
 
   useEffect(() => {
-  if (status === 'success') {
+  if (playerStatus === 'success') {
     setShowToast(true);
     setFormState({ firstName: "",
   graduationYear: "",
@@ -85,12 +85,12 @@ const {status,error,playerDetails} = useSelector((state) => state.registrationSl
       setTimeout(() => setShowToast(false), 3000);
 
   }
-  else if(error){
+  else if(playerErrors){
 
     setShowError(true);
     setTimeout(() => setShowError(false), 3000);
   }
-}, [status,error]);
+}, [playerStatus,playerErrors]);
 
   return (
     <>
@@ -102,7 +102,7 @@ const {status,error,playerDetails} = useSelector((state) => state.registrationSl
     </form>
 
 
-{status === 'isSubmitting' &&<div id="toast-success"
+{playerStatus === 'loading' &&<div id="toast-success"
        className="flex items-center w-full max-w-sm p-4 text-body bg-neutral-primary-soft 
                   rounded-base shadow-xs border border-green bg-green-300"
        role="alert">
@@ -115,7 +115,7 @@ const {status,error,playerDetails} = useSelector((state) => state.registrationSl
     </div>
 
     <div className="flex flex-row">
-<span>Submitting</span><Loading/>    </div>
+<span>Submitting </span><Loading/>    </div>
 
    
   </div>}
@@ -161,7 +161,7 @@ const {status,error,playerDetails} = useSelector((state) => state.registrationSl
   </div>
 }
 
-    <h3 className="font-bold text-lg sm:text-xl mb-2 ">Registertion Form</h3>
+    <h3 className="font-bold text-lg sm:text-xl mb-2 ">Player Registertion Form</h3>
 
     <hr />
    <div className='my-4'>
@@ -212,10 +212,7 @@ const {status,error,playerDetails} = useSelector((state) => state.registrationSl
 
 </div>
 
-<div className='flex flex-col'> <label className="label">Guardian Email</label>
-  <input type="email" onChange={handleChange}  name='guardianEmail' value={formState.guardianEmail} className="input w-full" placeholder="Email" />
-        {errors.guardianEmail && <p style={{ color: 'red' }}>{errors.guardianEmail}</p>}
-</div>
+
 
 <div className='flex flex-col'>  <label className="label">Password</label>
   <input type="password" onChange={handleChange}  name='password' value={formState.password} className="input w-full" placeholder="Password" />

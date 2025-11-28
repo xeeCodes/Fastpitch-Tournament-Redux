@@ -1,89 +1,66 @@
-import { call, put, takeLatest, all, delay} from "redux-saga/effects";
-
+import { call, put, takeLatest, all, delay } from "redux-saga/effects";
 import {
-    REGISTERATION_REQUEST,
-    REGISTERATION_SUBMITTING,
-    REGISTERATION_SUCCESS,
-    REGISTERATION_FAIL,
-    TEAM_REGISTER_REQUEST
-} from '../constants/registerationConstants'
-
+  PLAYER_REGISTER_SUBMITTING,
+  PLAYER_REGISTER_SUCCESS,
+  PLAYER_REGISTER_FAIL,
+  TEAM_REGISTER_SUBMITTING,
+  TEAM_REGISTER_SUCCESS,
+  TEAM_REGISTER_FAIL,
+  PLAYER_REGISTERATION_REQUEST,
+  TEAM_REGISTERATION_REQUEST
+} from '../constants/registerationConstants';
 import api from "../api/axios";
 
+function* postPlayerWorker(action) {
 
-//worker function for eventinfo
-
-function* postPlayerWorker(action){
-
-
-    try {
-
-        //response from api
-        const response = yield call(api.post, `/api/player/registeration`,
-            action.payload
-        )
-        yield put({type:REGISTERATION_SUBMITTING});
-                yield delay(5000);
-
-        yield put({type:REGISTERATION_SUCCESS,payload:response.data}); 
+  try {
 
 
-        
-        
-    } catch (error) {
+    yield put({ type: PLAYER_REGISTER_SUBMITTING });
+    yield delay(4000);
 
-        const message =
+    const response = yield call(api.post,`/api/player/registeration`, action.payload);
+
+    yield put({ type: PLAYER_REGISTER_SUCCESS, payload: response.data });
+
+  } catch (error) {
+
+const message =
       error.response && error.response.data.message
         ? error.response.data.message
         : error.message;
 
-        yield put({type:REGISTERATION_FAIL,payload:message})
-        
-    }
+      yield put({ type: PLAYER_REGISTER_FAIL, payload: message });
+  }
 }
 
-function* postTeamWorker(action){
+function* postTeamWorker(action) {
+  try {
+    yield put({ type: TEAM_REGISTER_SUBMITTING });
+    yield delay(4000);
 
+    const response = yield call(api.post, `/api/team/registeration`, action.payload);
+    yield put({ type: TEAM_REGISTER_SUCCESS, payload: response.data });
 
-    try {
-
-        //response from api
-        const response = yield call(api.post, `/api/team/registeration`,
-            action.payload
-        )
-        yield put({type:REGISTERATION_SUBMITTING});
-
-        yield delay(5000);
-        yield put({type:REGISTERATION_SUCCESS,payload:response.data});
-
-        // yield put({type:POST_REGISTERATION})
-        
-        
-    } catch (error) {
-
-        const message =
+  } catch (error) {
+    
+    const message =
       error.response && error.response.data.message
         ? error.response.data.message
         : error.message;
-
-        yield put({type:REGISTERATION_FAIL,payload:message})
-        
-    }
-}
-// event info watcher
-function* watchPostPlayer(){
-
-    yield takeLatest(REGISTERATION_REQUEST,postPlayerWorker)
+    yield put({ type: TEAM_REGISTER_FAIL, payload: message });
+  }
 }
 
-function* watchPostTeam(){
-
-    yield takeLatest(TEAM_REGISTER_REQUEST,postTeamWorker)
+function* watchPostPlayer() {
+  yield takeLatest(PLAYER_REGISTERATION_REQUEST, postPlayerWorker);
 }
 
-//exportall sagas
+function* watchPostTeam() {
+  
+  yield takeLatest(TEAM_REGISTERATION_REQUEST, postTeamWorker);
+}
 
-export default function* registerationSaga(){
-
-    yield all([watchPostPlayer(),watchPostTeam()]);
+export default function* registerationSaga() {
+  yield all([watchPostPlayer(), watchPostTeam()]);
 }

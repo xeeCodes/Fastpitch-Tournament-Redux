@@ -1,15 +1,17 @@
 import {
-
-    REGISTERATION_REQUEST,
-    TEAM_REGISTER_REQUEST
-
+  
+  PLAYER_REGISTERATION_REQUEST,
+  TEAM_REGISTERATION_REQUEST
 } from '../constants/registerationConstants';
 
-export const registerationAction = (formState) => ({
-type:REGISTERATION_REQUEST,
-payload:formState
+// Player registration action
+export const playerRegisterationAction = (formState) => ({
+  type: PLAYER_REGISTERATION_REQUEST, 
+  payload: formState
 });
+
+// Team registration action
 export const teamRegisterationAction = (formState) => ({
-type:TEAM_REGISTER_REQUEST,
-payload:formState
+  type: TEAM_REGISTERATION_REQUEST,  
+  payload: formState
 });
