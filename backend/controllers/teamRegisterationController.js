@@ -126,7 +126,7 @@ const allTeams = async (req,res,next) =>
 {
     try {
 
-const teamList = await Team.find({}).select("-password -__v");
+const teamList = await Team.find({});
 
         if (!teamList || teamList.length === 0) {
   return res.status(200).json({
@@ -153,9 +153,9 @@ const singleTeam = async (req,res,next) =>{
     try {
 
 
-        const teamId = Number(req.params.id);
+        const teamId = req.params.id;
 
-        const team = await Team.findOne({teamId}).select("-password-__v");
+        const team = await Team.findOne({teamId});
 
         if(!team){
 
@@ -234,9 +234,7 @@ const delTeam = async (req,res,next) => {
     try {
 
 
-        if (!req.params.id) {
-  return res.status(400).json({ message: "Team ID is required" });
-}
+       
 
         const teamId =req.params.id;
         const team =await Team.findOne({teamId});

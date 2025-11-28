@@ -173,7 +173,7 @@ const singlePlayer = async (req,res,next) =>{
     try {
 
 
-        const playerId = Number(req.params.id);
+        const playerId = req.params.id;
 
        
 
@@ -204,7 +204,7 @@ try {
 
 const playerId = req.params.id;
 
-        const player = await Player.findOne({playerId}).select("-passwod-__v");
+        const player = await Player.findOne({playerId}).select("-password");
  if(!player){
             return res.status(404).json({
                 message:"No player with this id"
@@ -260,9 +260,7 @@ const delPlayer = async (req,res,next) => {
 
     try {
 
-        if (!req.params.id) {
-  return res.status(400).json({ message: "Team ID is required" });
-}
+       
 
         const playerId =req.params.id;
        

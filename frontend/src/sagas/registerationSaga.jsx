@@ -36,6 +36,7 @@ const message =
 
 function* postTeamWorker(action) {
   try {
+    
     yield put({ type: TEAM_REGISTER_SUBMITTING });
     yield delay(4000);
 

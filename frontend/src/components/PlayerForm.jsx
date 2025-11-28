@@ -214,7 +214,8 @@ const {playerStatus,playerErrors  ,playerDetails} = useSelector((state) => state
 
 
 
-<div className='flex flex-col'>  <label className="label">Password</label>
+<div className='flex flex-col'> 
+   <label className="label">Password</label>
   <input type="password" onChange={handleChange}  name='password' value={formState.password} className="input w-full" placeholder="Password" />
         {errors.password && <p style={{ color: 'red' }}>{errors.password}</p>}
 </div>

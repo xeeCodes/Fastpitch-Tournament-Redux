@@ -57,10 +57,10 @@ function Information() {
    
    {/* entry fees and registeration deadline */}
 
-<div className='flex flex-col sm:flex-row  sm:justify-between md;justify-between  md:flex-row lg:flex-row lg:justify-between xl:flex-row  xl:justify-between xl:gap-1 gap-2 m-2 '>
+<div className='flex flex-col m-1 sm:flex-row  sm:justify-between  md:justify-between  md:flex-row lg:flex-row lg:justify-between xl:flex-row  xl:justify-between  xl:gap-1 gap-1  '>
 
 
-    <div className="card  bg-base-100 lg:w-2xl xl:w-4xl shadow-lg m-2 ">
+    <div className="card  bg-base-100 sm:w-lg md:w-xl lg:w-2xl xl:w-4xl shadow-lg m-1 ">
   <div className="card-body ">
     <h2 className="card-title text-xs sm:text-sm md:text-base "><i className="fas fa-dollar-sign text-green-700 text-2xl"></i>Entry Fees</h2>
    
@@ -90,7 +90,7 @@ function Information() {
    </div>
   </div>
 </div>
-<div className="card  bg-base-100 lg:w-2xl xl:w-4xl shadow-lg  m-2 w-xsm">
+<div className="card  bg-base-100 sm:w-lg md:w-xl lg:w-2xl xl:w-4xl shadow-lg  m-1 ">
   <div className="card-body">
     <h2 className="card-title text-xs sm:text-sm md:text-base "><i className="fa fa-clock  text-2xl text-red-600"></i>
 Registration Deadlines</h2>
@@ -103,7 +103,7 @@ Early Bird Deadline    </p>
    <hr/>
      <div className='flex flex-row text-xs sm:text-sm md:text-base  justify-between'>
     <p>
-Standard Registration    </p>
+Standard Registration</p>
     <p>May 30, 2025</p>
    </div>
    <hr/>

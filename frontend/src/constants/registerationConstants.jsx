@@ -1,10 +1,10 @@
-// Player registration actions
+// player registration actions
 export const PLAYER_REGISTERATION_REQUEST = 'REGISTERATION_REQUEST';
 export const PLAYER_REGISTER_SUBMITTING = 'PLAYER_REGISTER_SUBMITTING';
 export const PLAYER_REGISTER_SUCCESS = 'PLAYER_REGISTER_SUCCESS';
 export const PLAYER_REGISTER_FAIL = 'PLAYER_REGISTER_FAIL';
 
-// Team registration actions
+// team registration actions
 export const TEAM_REGISTERATION_REQUEST = 'TEAM_REGISTER_REQUEST';
 export const TEAM_REGISTER_SUBMITTING = 'TEAM_REGISTER_SUBMITTING';
 export const TEAM_REGISTER_SUCCESS = 'TEAM_REGISTER_SUCCESS';

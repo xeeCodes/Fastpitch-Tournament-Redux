@@ -4,6 +4,7 @@ import {fetchEventInfo} from '../actions/eventAction';
 import Loading from './Loading';
 import PlayerForm from './PlayerForm';
 import TeamForm from './TeamForm';
+import backgroundImage from '../assets/background.jpg'
 
 
 function Hero() {
@@ -20,11 +21,10 @@ const {status,error,eventDetails} = useSelector((state)=>state.eventSlice);
 
  return (
     <div
-      className="hero min-h-screen"
-      style={{
-        backgroundImage:
-          "url(https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp)",
-      }}
+      className="hero min-h-[70vh]"
+        style={{
+          backgroundImage: `url(${backgroundImage})`
+        }}
     >
       <div className="hero-overlay"></div>
       <div className="hero-content text-neutral-content text-center">

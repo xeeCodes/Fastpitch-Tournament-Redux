@@ -9,44 +9,12 @@ export default function TeamForm() {
     
     const ageGroups = ['18U','16U','14U'];
     const States = ['Punjab', 'Sindh', 'Khyber Pakhtunkhwa','Balochistan'];
-    const [errors,setErrors] = useState({});
+    const [errors,setErrors] = useState({});//for validations
 const [showToast, setShowToast] = useState(false);
-const [showErro,setShowError] = useState(false)
+const [showErro,setShowError] = useState(false)//for toast showing errors while submission
 
 
-    // function for validation
-
-    const validate = (value) => {
-      const newErrors = {};
-
-      if(!value.name){
-
-        newErrors.name = 'name is required'
-      }
-      if(!value.coachName){
-        newErrors.coachName ='coach name is required'
-      }
-      if(!value.coachEmail){
-        newErrors.coachEmail ='email is required'
-      }
-      else if(!/\S+@\S+\.\S+/.test(value.coachEmail)){
-        newErrors.coachEmail ='email address is invalid'
-      }
-      if(!value.state){
-        newErrors.state ='state is required'
-      }
-      if(!value.ageGroup){
-        newErrors.ageGroup ='age group is required'
-      }
-      if(!value.password){
-        newErrors.password ='password is required'
-      }
-
-      return newErrors;
-    }
-
-    
-    const [formState, setFormState] = useState({
+   const [formState, setFormState] = useState({
     
       name: "",
       coachName: "",
@@ -56,6 +24,40 @@ const [showErro,setShowError] = useState(false)
       password: ""
     
     })
+
+    // function for validation
+
+    const validate = (formstate) => {
+      const newErrors = {};
+
+      if(!formstate.name){
+
+        newErrors.name = 'name is required'
+      }
+      if(!formstate.coachName){
+        newErrors.coachName ='coach name is required'
+      }
+      if(!formstate.coachEmail){
+        newErrors.coachEmail ='email is required'
+      }
+      else if(!/\S+@\S+\.\S+/.test(formstate.coachEmail)){
+        newErrors.coachEmail ='email address is invalid'
+      }
+      if(!formstate.state){
+        newErrors.state ='state is required'
+      }
+      if(!formstate.ageGroup){
+        newErrors.ageGroup ='age group is required'
+      }
+      if(!formstate.password){
+        newErrors.password ='password is required'
+      }
+
+      return newErrors;
+    }
+
+    
+ 
     
     // handle change
     
@@ -99,7 +101,8 @@ const [showErro,setShowError] = useState(false)
           if (teamStatus === 'success' ) {
     setShowToast(true);
 
-setFormState({ name: "",
+setFormState({ 
+    name: "",
 coachName: "",
 ageGroup: "",
 state: "",
@@ -138,7 +141,7 @@ password: ""});
                         </svg>
                     </div>
                     <div className="flex flex-row">
-                        <span>Submitting</span><Loading/>
+                        <span>Submitting </span><Loading/>
                     </div>
                 </div>}
 
@@ -174,7 +177,7 @@ password: ""});
                     </div>
                 </div>}
 
-                <h3 className="font-bold text-lg my-3 ">Registertion Form</h3>
+                <h3 className="font-bold text-lg my-3 ">Team Registertion Form</h3>
                 <hr />
                 <div className='my-4'>
                     <form>
@@ -190,6 +193,7 @@ password: ""});
                             {errors.coachName && <p style={{ color: 'red' }}>{errors.coachName}</p>}
                         </div>
 
+                        
                         <div className="form-control">
                             <label className="label">Age Group</label>
                             <select name="ageGroup" value={formState.ageGroup} className="select select-bordered" onChange={handleChange}>

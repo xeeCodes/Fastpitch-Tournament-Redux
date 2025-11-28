@@ -1,7 +1,6 @@
 import React from 'react'
 import logo from '../assets/logo.jpeg'
-import {useSelector,useDispatch} from "react-redux";
-import {fetchEventInfo} from '../actions/eventAction';
+import {useSelector} from "react-redux";
 
 
 function Header() {
