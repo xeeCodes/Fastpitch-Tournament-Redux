@@ -125,7 +125,7 @@ password: ""});
     
   return (
    <dialog id="team-form" className="modal">
-            <div className="modal-box w-64 sm:w-80 md:w-96 max-w-lg p-6 sm:p-8">
+            <div className="modal-box w-full-[10px] max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl p-6  sm:p-8">
                 <form method="dialog">
                     <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                 </form>
@@ -181,22 +181,22 @@ password: ""});
                 <hr />
                 <div className='my-4'>
                     <form>
-                        <div className="form-control">
+                        <div className="flex flex-col">
                             <label className="label">Team Name</label>
-                            <input type="text"  onChange={handleChange} name='name' value={formState.name} className="input input-bordered" placeholder="Team Name" />
+                            <input type="text"  onChange={handleChange} name='name' value={formState.name} className="input w-full input-bordered" placeholder="Team Name" />
                             {errors.name && <p style={{ color: 'red' }}>{errors.name}</p>}
                         </div>
 
-                        <div className="form-control">
+                        <div className="flex flex-col">
                             <label className="label">Coach Name</label>
-                            <input type="text"  onChange={handleChange} name='coachName' value={formState.coachName} className="input input-bordered" placeholder="Coach Name" />
+                            <input type="text"  onChange={handleChange} name='coachName' value={formState.coachName} className="input w-full input-bordered" placeholder="Coach Name" />
                             {errors.coachName && <p style={{ color: 'red' }}>{errors.coachName}</p>}
                         </div>
 
                         
-                        <div className="form-control">
+                        <div className="flex flex-col">
                             <label className="label">Age Group</label>
-                            <select name="ageGroup" value={formState.ageGroup} className="select select-bordered" onChange={handleChange}>
+                            <select name="ageGroup" value={formState.ageGroup} className="select w-full select-bordered" onChange={handleChange}>
                                 <option value="" disabled>Select an Age Group</option>
                                 {ageGroups.map(group => (
                                     <option key={group} value={group}>{group}</option>
@@ -205,24 +205,24 @@ password: ""});
                             {errors.ageGroup && <p style={{ color: 'red' }}>{errors.ageGroup}</p>}
                         </div>
 
-                        <div className="form-control">
+                        <div className="flex flex-col">
                             <label className="label">State</label>
-                            <select name="state" value={formState.state} className="select select-bordered" onChange={handleChange}>
+                            <select name="state" value={formState.state} className="select w-full select-bordered" onChange={handleChange}>
                                 <option value="" disabled>Select a State</option>
                                 {States.map(g => <option key={g} value={g}>{g}</option>)}
                             </select>
                             {errors.state && <p style={{ color: 'red' }}>{errors.state}</p>}
                         </div>
 
-                        <div className="form-control">
+                        <div className="flex flex-col">
                             <label className="label">Coach Email</label>
-                            <input type="email" onChange={handleChange}  name='coachEmail' value={formState.coachEmail} className="input input-bordered" placeholder="Email" />
+                            <input type="email" onChange={handleChange}  name='coachEmail' value={formState.coachEmail} className="input w-full input-bordered" placeholder="Email" />
                             {errors.coachEmail && <p style={{ color: 'red' }}>{errors.coachEmail}</p>}
                         </div>
 
-                        <div className="form-control">
+                        <div className="flex flex-col">
                             <label className="label">Password</label>
-                            <input type="password" onChange={handleChange}  name='password' value={formState.password} className="input input-bordered" placeholder="Password" />
+                            <input type="password" onChange={handleChange}  name='password' value={formState.password} className="input input-bordered w-full" placeholder="Password" />
                             {errors.password && <p style={{ color: 'red' }}>{errors.password}</p>}
                         </div>
 
