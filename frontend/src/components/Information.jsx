@@ -9,9 +9,9 @@ function Information() {
 
 <h3 className='text-center my-2 lg:text-lg lg:mx-13'>Divisions</h3>
 
-<div className='flex flex-col gap-2 sm:flex-row sm:gap-0  md:flex-row md:justify-between lg:justify-between sm:justify-between  md:gap-2  lg:mx-3 m-2 '>
+<div className="flex flex-col  sm:flex-row    md:flex-row      md:gap-2  lg:mx-1 m-2 sm:m-1 md:m-1  ">
   
-  <div className="card w-full m-1 sm:w-64 md:w-80 lg:w-96 xl:w-full bg-base-100 shadow-md">
+  <div className="card w-full m-1 bg-base-100 shadow-md flex-1">
     <div className="card-body">
       <h3 className="card-title text-xs sm:text-sm md:text-base">
         <i className="fas fa-layer-group text-blue-500"></i> 18U Division
@@ -24,7 +24,7 @@ function Information() {
     </div>
   </div>
 
-  <div className="card w-full m-1 sm:w-64 md:w-80 lg:w-96 xl:w-full bg-base-100 shadow-md">
+  <div className='card w-full m-1 bg-base-100 shadow-md flex-1'>
     <div className="card-body">
       <h3 className="card-title">
         <i className="fas fa-layer-group text-blue-500"></i> 16U Division
@@ -37,7 +37,7 @@ function Information() {
     </div>
   </div>
 
-  <div className="card w-full sm:w-64 md:w-80 lg:w-96 xl:w-full m-1 bg-base-100 shadow-md">
+  <div className="card w-full m-1 bg-base-100 shadow-md flex-1">
     <div className="card-body">
       <h3 className="card-title">
         <i className="fas fa-layer-group text-blue-500"></i> 14U Division
@@ -57,10 +57,10 @@ function Information() {
    
    {/* entry fees and registeration deadline */}
 
-<div className='flex flex-col m-1 sm:flex-row  sm:justify-between  md:justify-between  md:flex-row lg:flex-row lg:justify-between xl:flex-row  xl:justify-between  xl:gap-1 gap-1  '>
+<div className='flex flex-col m-1 sm:flex-row    md:flex-row lg:flex-row  xl:flex-row    xl:gap-1 gap-1  '>
 
 
-    <div className="card  bg-base-100 sm:w-lg md:w-xl lg:w-2xl xl:w-4xl shadow-lg m-1 ">
+    <div className="card  bg-base-100 flex-1 shadow-lg m-1 ">
   <div className="card-body ">
     <h2 className="card-title text-xs sm:text-sm md:text-base "><i className="fas fa-dollar-sign text-green-700 text-2xl"></i>Entry Fees</h2>
    
@@ -90,7 +90,7 @@ function Information() {
    </div>
   </div>
 </div>
-<div className="card  bg-base-100 sm:w-lg md:w-xl lg:w-2xl xl:w-4xl shadow-lg  m-1 ">
+<div className="card  bg-base-100 flex-1 shadow-lg  m-1 ">
   <div className="card-body">
     <h2 className="card-title text-xs sm:text-sm md:text-base "><i className="fa fa-clock  text-2xl text-red-600"></i>
 Registration Deadlines</h2>
@@ -136,9 +136,9 @@ Late Registration
             Our exclusive player development camp runs concurrent with the tournament and offers individual skill development for athletes looking to take their game to the next level. Work with college coaches and professional trainers in small group settings.
         </p>
     </div>
-<div className="flex flex-col gap-2 sm:flex-row md:flex-row lg:flex-row flex-wrap">
+<div className="flex flex-col sm:flex-row gap-2 ">
 
-  <div className="card flex-1 min-w-[250px] sm:min-w-[300px] bg-blue-200 text-black p-2">
+  <div className="card flex-1  bg-blue-200 text-black p-2">
     <h3 className="px-2">What's Included</h3>
     <div className="card-body py-0">
       <ul className="mt-2 flex flex-col gap-2 text-xs sm:text-sm md:text-base bullet-list">
@@ -150,7 +150,7 @@ Late Registration
     </div>
   </div>
 
-  <div className="card flex-1 min-w-[250px] sm:min-w-[300px] bg-blue-200 text-black p-2">
+  <div className="card flex-1  bg-blue-200 text-black p-2">
     <h3 className="px-2">Camp Details</h3>
     <div className="card-body py-0">
       <ul className="mt-2 flex flex-col gap-2 text-xs sm:text-sm md:text-base bullet-list">
