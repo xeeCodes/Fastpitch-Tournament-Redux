@@ -5,6 +5,7 @@ function Information() {
 <>
 
   {/* // divisions */}
+  
    <div className=''>
 
 <h3 className='text-center my-2 lg:text-lg lg:mx-13'>Divisions</h3>

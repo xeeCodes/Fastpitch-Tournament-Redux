@@ -13,8 +13,10 @@ const initialStates = {};
 //combined redusers
 
 const reducer = combineReducers({
+  
 
     eventSlice: eventInfoReducer,
+
     registrationSlice:registrationReducer
 
 

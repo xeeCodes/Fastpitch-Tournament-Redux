@@ -21,6 +21,7 @@ const playerInfo = async(req,res) => {
                 const existing = await Player.findOne({ guardianEmail });
 
 
+if (existing) return res.status(400).json({ message: "Email already registered" });
 
 
 if(firstName.length < 3 ){
@@ -39,11 +40,9 @@ if (!emailRegex.test(guardianEmail)) {
   return res.status(400).json({ message: "Password must be at least 6 characters" });
 }
 
-        if (!graduationYear || graduationYear < 1900 || graduationYear > 2100) {
-  return res.status(400).json({ message: "Invalid graduation year" });
-}
+       
 
-if (existing) return res.status(400).json({ message: "Email already registered" });
+
 
 
 
@@ -73,7 +72,7 @@ const eventId = activeEvent.eventId;
         message: `The value for ${field} must be unique. A document with this ${field} already exists.`
       });
     }
-        console.log("I ma from event catch block");
+        console.log("I am from event catch block");
         console.log(error.message);
     }
 };
@@ -167,32 +166,34 @@ const allPlayers = async (req,res,next) =>
 
 // get player by id
 
-const singlePlayer = async (req,res,next) =>{
-
-
+const singlePlayer = async (req, res, next) => {
     try {
+        const { id } = req.params;
 
-
-        const playerId = req.params.id;
-
-       
-
-        const player = await Player.findOne({playerId});
-
-        if(!player){
-
-          return res.status(400).json({
-                message:"Sorry! invalid id"
-            });
+        // Validate ID
+        if (!id) {
+            return res.status(400).json({ error: "Player ID is required" });
         }
 
-            res.status(201).json(player);
-        
+        const playerId = Number(id);
+        if (isNaN(playerId)) {
+            return res.status(400).json({ error: "Invalid player ID" });
+        }
+
+        // Find the player
+        const player = await Player.findOne({ playerId: playerId });
+
+        if (!player) {
+            return res.status(404).json({ message: "Player not found" });
+        }
+
+        res.status(200).json(player);
+
     } catch (error) {
-        console.log(error.message);
+        console.error(error);
         next(error);
     }
-}
+};
 
 //updating the player
 
@@ -202,7 +203,7 @@ try {
 
    
 
-const playerId = req.params.id;
+const playerId = Number(req.params.id);
 
         const player = await Player.findOne({playerId}).select("-password");
  if(!player){

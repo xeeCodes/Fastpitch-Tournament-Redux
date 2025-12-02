@@ -95,7 +95,7 @@ const [showErro,setShowError] = useState(false)//for toast showing errors while 
     
         }
 
-        // useeffect
+        // use effect
 
          useEffect(() => {
           if (teamStatus === 'success' ) {
