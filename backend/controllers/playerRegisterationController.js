@@ -212,9 +212,9 @@ const playerId = Number(req.params.id);
             });
         }
 
-          const {firstName,lastName,graduationYear,primaryPosition,guardianEmail} = req.body;
+          const {firstName,graduationYear,primaryPosition,guardianEmail} = req.body;
 
-       if ((firstName && firstName.length < 2) || (lastName && lastName.length < 3)) {
+       if ((firstName && firstName.length < 2) ) {
       return res.status(400).json({ message: "Name is too short" });
     }
 
@@ -234,8 +234,7 @@ if (!emailRegex.test(guardianEmail)) {
             
 
                 player.firstName=firstName;
-                                player.lastName = lastName;
-                player.graduaionYear=graduationYear,
+                player.graduationYear=graduationYear,
                 player.primaryPosition=primaryPosition;
                 player.guardianEmail=guardianEmail;
 
@@ -263,7 +262,7 @@ const delPlayer = async (req,res,next) => {
 
        
 
-        const playerId =req.params.id;
+        const playerId =Number(req.params.id);
        
 
     const player =await Player.findOne({playerId});
@@ -279,8 +278,8 @@ const delPlayer = async (req,res,next) => {
        
         await player.deleteOne();       
 
-        res.status(201).json({
- message: "Note Removed"
+        res.status(200).json({
+ message: "Player Removed"
 
             });
         

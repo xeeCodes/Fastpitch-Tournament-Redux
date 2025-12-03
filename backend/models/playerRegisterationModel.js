@@ -7,7 +7,7 @@ const playerSchema = new mongoose.Schema({
     firstName: { type: String, required: true },
     events: [{ type: mongoose.Schema.Types.ObjectId, ref: 'eventModel', default: [] }],
     team: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Team', default: [] }],
-    graduationYear: { type: Number, required: true },
+    graduationYear: { type: String, required: true },
     primaryPosition: { type: String, required: true },
     guardianEmail: {
         type: String,

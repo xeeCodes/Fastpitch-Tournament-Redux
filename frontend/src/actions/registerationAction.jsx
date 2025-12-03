@@ -34,8 +34,16 @@ export const playerAction = (id) => ({
 // Edit player 
 export const playerEditAction = (id, playerData) => ({
 type: PLAYER_EDIT_REQUEST,
-  payload: { id: playerId, playerData },
+  payload: { id, playerData },
+  
 });
+
+//delete player 
+
+  export const playerDeleteAction = (id) => ({
+    type:PLAYER_DEL_REQUEST,
+    payload:id
+  })
 
 // Team registration action
 export const teamRegisterationAction = (formState) => ({
